@@ -6,7 +6,6 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-            Scoreboard(0, 0);
             Game();
         }
         static void Scoreboard(int playerScore, int computerScore)
@@ -21,14 +20,17 @@ namespace RockPaperScissors
         }
         static int Choice()
         {
-            int answer = int.Parse(Console.ReadLine());
+            Console.Write("Make a selection: ");
+            string answer = Console.ReadLine();
 
-            while (answer != 1 && answer != 2 && answer != 3)
+            while (answer != "1" && answer != "2" && answer != "3")
             {
-                answer = int.Parse(Console.ReadLine());
+                Console.Write("Make a selection: ");
+                answer = Console.ReadLine();
             }
 
-            return answer;
+            int answerToInt = int.Parse(answer);
+            return answerToInt;
 
         }
         static void Game()
@@ -38,6 +40,8 @@ namespace RockPaperScissors
 
             while (playerTotal < 3 && computerTotal < 3)
             {
+                Scoreboard(playerTotal, computerTotal);
+
                 Random r = new Random();
                 int computerPick = r.Next(1, 4);
                 int playerPick = Choice();
@@ -54,9 +58,6 @@ namespace RockPaperScissors
                     Console.WriteLine("Round Player");
                     playerTotal++;
                 }
-
-                Scoreboard(playerTotal, computerTotal);
-
             }
 
             if (playerTotal == 3)
