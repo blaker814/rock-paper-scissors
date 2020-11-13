@@ -41,14 +41,17 @@ namespace RockPaperScissors
                 Random r = new Random();
                 int computerPick = r.Next(1, 4);
                 int playerPick = Choice();
-                Console.WriteLine(computerPick);
+                Console.WriteLine($"Player picked {Pick(playerPick)}");
+                Console.WriteLine($"Computer picked {Pick(computerPick)}");
 
                 if (playerPick == 1 && computerPick == 2 || playerPick == 2 && computerPick == 3 || playerPick == 3 && computerPick == 1)
                 {
+                    Console.WriteLine("Round Computer");
                     computerTotal++;
                 }
                 else if (playerPick == 2 && computerPick == 1 || playerPick == 3 && computerPick == 2 || playerPick == 1 && computerPick == 3)
                 {
+                    Console.WriteLine("Round Player");
                     playerTotal++;
                 }
 
@@ -63,6 +66,21 @@ namespace RockPaperScissors
             else
             {
                 Console.WriteLine("YOU LOSE");
+            }
+        }
+        static string Pick(int choice)
+        {
+            if (choice == 1)
+            {
+                return "Rock";
+            }
+            else if (choice == 2)
+            {
+                return "Paper";
+            }
+            else
+            {
+                return "Scissors";
             }
         }
     }
