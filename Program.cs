@@ -7,7 +7,7 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             Scoreboard(0, 0);
-            Round();
+            Game();
         }
         static void Scoreboard(int playerScore, int computerScore)
         {
@@ -31,7 +31,7 @@ namespace RockPaperScissors
             return answer;
 
         }
-        static void Round()
+        static void Game()
         {
             int playerTotal = 0;
             int computerTotal = 0;
